@@ -3,7 +3,8 @@
     <test name="Regression1">
         <classes>
             <class name="com.salesforce.dev.TestNGSuite"/>
-            <class name="com.salesforce.dev.CreateViewLead"/>
+            <class name="com.salesforce.dev.CreateProduct"/>
+            <class name="com.salesforce.dev.EditProduct"/>
             <class name="com.salesforce.dev.Opportunities"/>
             <!--<class name="com.selenium.course.testng.EditFullName"/>-->
             <!--<class name="com.selenium.course.testng.QuickAddTask"/>-->

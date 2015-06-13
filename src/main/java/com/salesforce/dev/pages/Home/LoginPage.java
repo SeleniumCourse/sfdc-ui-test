@@ -1,5 +1,6 @@
 package com.salesforce.dev.pages.Home;
 import com.salesforce.dev.pages.Base.NavigationBar;
+import com.salesforce.dev.pages.MainPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -31,30 +32,34 @@ public class LoginPage {
         PageFactory.initElements(driver,this);
     }
 
-    public void SetUserName(String Name){
+    public void setUserName(String Name){
         wait.until(ExpectedConditions.visibilityOf(userNameFld));
         userNameFld.sendKeys(Name);
     }
-    public void SetPassword(String Password){
+    public void setPassword(String Password){
         wait.until(ExpectedConditions.visibilityOf(passwrodFld));
         passwrodFld.sendKeys(Password);
     }
-    public void ClickLoginButton(){
+    public void clickLoginBtn(){
         loginBtn.click();
     }
-    public NavigationBar LoginAs(String UserName,String Pass){
-        NavigationBar navigationBar=new NavigationBar(driver);
-        try {
 
-            if (!navigationBar.IsUserLavelPresent()) {
-                SetUserName(UserName);
-               SetPassword(Pass);
-                ClickLoginButton();
-            }
+    /**
+     * Returns the Main Page which contains the TopHeader and Navigation Bar
+     * And the Main Page is the one who initializes those objects
+     *
+     * @author: Jimmy Vargas
+     * */
+    public MainPage loginAs(String userName,String password){
+        this.setUserName(userName);
+        this.setPassword(password);
+        this.clickLoginBtn();
 
-        } catch (WebDriverException e) {
-
-        }
-        return navigationBar;
+        // this is the crazy page
+        //ICNotNeededPage icNotNeededPage = new ICNotNeededPage(this.driver);
+        /*if(icNotNeededPage.isICNotNeededPagePresent()){
+            icNotNeededPage.continueButton.click();
+        }*/
+        return new MainPage(this.driver);
     }
 }

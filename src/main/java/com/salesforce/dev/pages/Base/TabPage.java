@@ -15,35 +15,27 @@ public abstract class TabPage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    @FindBy(xpath = "//a[contains(text(),'Create New View')]")
-    protected WebElement createNewViewLink;
-
-    @FindBy(xpath = "//a[contains(text(),'Delete')]")
-    protected WebElement deleteViewLink;
-
-    @FindBy(xpath = "//a[contains(text(),'Edit')]")
-    protected WebElement editViewLink;
-
     @FindBy(id = "fcf")
     protected WebElement viewCombobox;
 
     @FindBy(name = "new")
     protected WebElement newBtn;
 
+    /**
+     * Method clicks the New button in the home page for each different category
+     *
+     * @author: Jimmy
+     */
     abstract protected Object clickNewBtn();
 
-    public void selectViewByVisibleText(String viewName){
-        try{
-            wait.until(ExpectedConditions.visibilityOf(viewCombobox));
-            Select lcb = new Select(viewCombobox);
-            lcb.selectByVisibleText(viewName);
-        }
-        catch(WebDriverException e){
-            System.out.println(e.getMessage());
-        }
-        finally {
-            driver.switchTo().defaultContent();
-        }
-    }
+    /**
+     * Method that encapsulates the the operations waiting for the elemeent and the action
+     *
+     * @author: Jimmy
+     */
+    protected void clickNewButton() {
+        this.wait.until(ExpectedConditions.visibilityOf(newBtn));
+        newBtn.click();
 
+    }
 }

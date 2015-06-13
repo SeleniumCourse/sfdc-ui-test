@@ -1,6 +1,8 @@
 package com.salesforce.dev;
 
-import com.salesforce.dev.pages.*;
+import com.salesforce.dev.pages.Base.NavigationBar;
+import com.salesforce.dev.pages.Home.HomePage;
+import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.pages.Opportunities.OpportunitiesHome;
 import com.salesforce.dev.pages.Opportunities.OpportunityDetails;
 import com.salesforce.dev.pages.Opportunities.OpportunityForm;
@@ -21,19 +23,20 @@ public class Opportunities {
 
 
     HomePage homePage;
-    LoginPage loginPage;
     MainPage mainPage;
+    NavigationBar navBar;
 
     @BeforeMethod
     public void setUp(){
         homePage = new HomePage();
         mainPage = homePage.loginAs(account,password);
+        navBar = mainPage.gotoNavBar();
 
     }
     @Test
     public void CreateOpportunity(){
 
-        OpportunitiesHome opTab = mainPage.gotoOpportunitiesHome();
+        OpportunitiesHome opTab = navBar.gotoOpportunitiesHome();
         //opTab.selectViewByVisibleText("New This Week");
 
         //small piece for all test case
@@ -42,8 +45,13 @@ public class Opportunities {
         newOpPage.setOpportunityName(opportunityName);
         newOpPage.setCloseDate();
         newOpPage.setStageByVisibleText(stage);
-        OpportunityDetails opportunityPage = newOpPage.clickSaveBtn();
+        OpportunityDetails opportunityDetails = newOpPage.clickSaveBtn();
 
+        System.out.println("Op Owner" + opportunityDetails.opOwner.getText());
+
+        //verifying the oppotunity created
+        //String opportunityDetails = opportunityPage.getOwner();
+        //String opportunityDetails = opportunityPage.getName();
 
 
     }

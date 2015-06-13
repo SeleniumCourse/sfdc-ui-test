@@ -1,5 +1,6 @@
 package com.salesforce.dev;
-import com.salesforce.dev.pages.Base.NavigationBar;
+import com.salesforce.dev.pages.Home.HomePage;
+import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.Product.ProductBuilder;
 import com.salesforce.dev.pages.Product.ProductDetails;
 import com.salesforce.dev.pages.Product.ProductForm;

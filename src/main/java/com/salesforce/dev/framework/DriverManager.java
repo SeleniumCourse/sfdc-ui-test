@@ -70,7 +70,7 @@ public class DriverManager {
     }
 
     public void quit(){
-        driver.close();
-        driver.quit();
+        /*driver.close();
+        driver.quit();*/
     }
 }

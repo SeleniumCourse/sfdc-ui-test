@@ -1,6 +1,7 @@
 package com.salesforce.dev.pages.Home;
+import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.framework.DriverManager;
-import org.openqa.selenium.By;
+import com.salesforce.dev.pages.TopHeader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -35,5 +36,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
      return new LoginPage(this.driver);
    }
 
+  /**
+   * Method that make sure to log with the correct user
+   *
+   * @author: Jimmy Vargas
+   * */
+  public MainPage loginAs(String account, String password){
+    MainPage mainPage;
+
+    try{
+      mainPage = new MainPage(this.driver);
+      TopHeader topHeader =  mainPage.gotoTopHeader();
+      if(topHeader.isUserMenuPresent()){
+        if(!topHeader.isLoggedUser(account)){
+          LoginPage loginPage = topHeader.logout();
+          mainPage = loginPage.loginAs(account, password);
+        }
+      }
+
+    }
+    catch(WebDriverException e){
+      LoginPage loginPage = this.clickLoginBtn();
+      mainPage = loginPage.loginAs(account, password);
+    }
+    return mainPage;
+  }
 
 }
