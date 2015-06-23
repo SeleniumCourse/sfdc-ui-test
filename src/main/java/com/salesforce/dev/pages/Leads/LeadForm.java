@@ -176,11 +176,7 @@ public class LeadForm extends FormBase {
     /*Lead Information*/
     public void selectNameSalutationByVisibleText(String salutation){
         if(salutation!=null) {
-            try {
-                selectItemComboBox(nameSalutation, salutation);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The salutation " + salutation + " couldn't be selected");
-            }
+            selectItemComboBox(nameSalutation, salutation);
         }
     }
 
@@ -192,11 +188,7 @@ public class LeadForm extends FormBase {
 
     public void selectLeadSourceByVisibleText(String leadSource){
         if(leadSource!=null) {
-            try {
-                selectItemComboBox(this.leadSource, leadSource);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The lead source " + leadSource + " couldn't be selected");
-            }
+            selectItemComboBox(this.leadSource, leadSource);
         }
     }
 
@@ -213,11 +205,7 @@ public class LeadForm extends FormBase {
 
     public void selectIndustryByVisibleText(String industry){
         if (industry!=null) {
-            try {
-                selectItemComboBox(this.industry, industry);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The industry " + industry + " couldn't be selected");
-            }
+            selectItemComboBox(this.industry, industry);
         }
     }
 
@@ -260,11 +248,7 @@ public class LeadForm extends FormBase {
 
     public void selectRatingByVisibleText(String rating){
         if(rating!=null) {
-            try {
-                selectItemComboBox(this.rating, rating);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The rating " + rating + " couldn't be found");
-            }
+            selectItemComboBox(this.rating, rating);
         }
     }
 
@@ -308,11 +292,8 @@ public class LeadForm extends FormBase {
     /*additional information*/
     public void selectProductInterestByVisibleText(String productInterest){
         if(productInterest!=null) {
-            try {
-                selectItemComboBox(this.productInterest, productInterest);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The product " + productInterest + " couldn't be found");
-            }
+           selectItemComboBox(this.productInterest, productInterest);
+
         }
     }
 
@@ -337,11 +318,8 @@ public class LeadForm extends FormBase {
 
     public void selectPrimaryByVisibleText(String primary){
         if(primary!=null) {
-            try {
-                selectItemComboBox(this.primary, primary);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The primary " + primary + " couldn't be found");
-            }
+           selectItemComboBox(this.primary, primary);
+
         }
     }
 
@@ -368,11 +346,7 @@ public class LeadForm extends FormBase {
 
     public void selectLeadStatusByVisibleText(String leadStatus){
         if (leadStatus!=null) {
-            try {
-                selectItemComboBox(this.leadStatus, leadStatus);
-            } catch (WebDriverException e) {
-                throw new WebDriverException("The leadStatus " + leadStatus + " couldn't be selected");
-            }
+            selectItemComboBox(this.leadStatus, leadStatus);
         }
     }
 

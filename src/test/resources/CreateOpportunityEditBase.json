@@ -1,0 +1,23 @@
+{
+  "Private":true,
+  "Opportunity Name":"Op using json edit",
+  "Account Name":null,
+  "Account Name Lookup":null,
+  "Type":null,
+  "Lead Source":null,
+  "Amount":"10000",
+  "Close Date":"Today",
+  "Next Step":null,
+  "Stage":"Needs Analysis",
+  "Probability":null,
+  "Primary Campaign Source":null,
+  "Primary Campaign Source Lookup":null,
+
+  "Order Number":null,
+  "Current Generator":null,
+  "Tracking Number":null,
+  "Main Competitor":null,
+  "DeliveryInstallation Status":null,
+
+  "Description":"Using json edit"
+}

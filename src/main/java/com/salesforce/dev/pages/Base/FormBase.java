@@ -3,6 +3,7 @@ package com.salesforce.dev.pages.Base;
 import com.salesforce.dev.framework.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -90,9 +91,14 @@ public abstract class FormBase {
     }
 
     protected void selectItemComboBox(WebElement webElement, String value){
-        wait.until(ExpectedConditions.visibilityOf(webElement));
-        Select comboBox = new Select(webElement);
-        comboBox.selectByVisibleText(value);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(webElement));
+            Select comboBox = new Select(webElement);
+            comboBox.selectByVisibleText(value);
+        }
+        catch(WebDriverException e){
+            throw new WebDriverException("The value " +value+ "couldn't be selected");
+        }
     }
 
     protected void fillTextBox(WebElement webElement, String value){

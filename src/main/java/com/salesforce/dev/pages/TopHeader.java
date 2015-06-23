@@ -32,19 +32,6 @@ public class TopHeader {
         PageFactory.initElements(this.driver,this);
     }
 
-    public void clickUserMyProfileMenuOption(){
-        try{
-            wait.until(ExpectedConditions.visibilityOf(userMyProfileMenu));
-            userMyProfileMenu.click();
-        }
-        catch(WebDriverException e){
-            throw new WebDriverException(e);
-        }
-        finally {
-            this.driver.switchTo().defaultContent();
-        }
-    }
-
     public void clickUserNameMenu(){
         try{
             wait.until(ExpectedConditions.visibilityOf(userMenu));
@@ -52,9 +39,6 @@ public class TopHeader {
         }
         catch (WebDriverException e){
             throw new WebDriverException(e);
-        }
-        finally {
-            this.driver.switchTo().defaultContent();
         }
     }
     public String getUserName(){
@@ -65,9 +49,6 @@ public class TopHeader {
         }
         catch (WebDriverException e){
             throw new WebDriverException(e);
-        }
-        finally{
-            this.driver.switchTo().defaultContent();
         }
         return userLogged;
     }
