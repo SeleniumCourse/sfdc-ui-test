@@ -8,6 +8,7 @@ import com.salesforce.dev.pages.Campaigns.CampaignsHome;
 import com.salesforce.dev.pages.Home.HomePage;
 import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.pages.SearchLookup.SearchLookupBase;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -42,6 +43,13 @@ public class CreateCampaign {
     public void setUp() {
         homePage = new HomePage();
         mainPage = homePage.loginAsPrimaryUser();
+        navigationBar = mainPage.gotoNavBar();
+        campaignsHome = navigationBar.goToCamapaignsHome();
+        campaignForm = campaignsHome.clickNewBtn();
+        campaignForm.setCampaignName(parentCampaign);
+        campaignForm.checkActiveCheckbox();
+        campaignDetail = campaignForm.clickSaveBtn();
+        mainPage = campaignDetail.gotoMainPage();
     }
 
     @Test
@@ -66,12 +74,21 @@ public class CreateCampaign {
 
         campaignDetail = campaignForm.clickSaveBtn();
 
-        //Assert.assertTrue(contactDetail.VerifyContact(lastName), "contact was not Created");
+        Assert.assertTrue(campaignDetail.validateCampaignNameFld(campaignName));
+        Assert.assertTrue(campaignDetail.validateCampaignType(campaignType));
+        Assert.assertTrue(campaignDetail.validateCampaignStatus(campaignStatus));
+        Assert.assertTrue(campaignDetail.validateCampaignStartDate(startDate));
+        Assert.assertTrue(campaignDetail.validateCampaignEndDate(endDate));
+        Assert.assertTrue(campaignDetail.validateCampaignParent(parentCampaign));
     }
 
     @AfterMethod
     public void tearDown() {
         campaignDetail.clickDeleteBtn(true);
-
+        mainPage = campaignDetail.gotoMainPage();
+        navigationBar = mainPage.gotoNavBar();
+        campaignsHome = navigationBar.goToCamapaignsHome();
+        campaignDetail = campaignsHome.selectRecentItem(parentCampaign);
+        campaignDetail.clickDeleteBtn(true);
     }
-}
+} 

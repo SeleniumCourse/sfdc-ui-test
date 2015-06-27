@@ -46,7 +46,6 @@ public class SearchLookupBase {
 
         LinkedList<String> windowsArray = new LinkedList(windows);
         try {
-            System.out.println("before frame");
             driver.switchTo().window(windowsArray.getLast());
             driver.switchTo().frame(driver.findElement(By.name("searchFrame")));
 
