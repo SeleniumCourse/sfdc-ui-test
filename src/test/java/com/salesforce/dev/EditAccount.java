@@ -1,6 +1,5 @@
 package com.salesforce.dev;
 
-import com.salesforce.dev.framework.Environment;
 import com.salesforce.dev.pages.Accounts.AccountDetail;
 import com.salesforce.dev.pages.Accounts.AccountForm;
 import com.salesforce.dev.pages.Accounts.AccountsHome;
@@ -8,11 +7,10 @@ import com.salesforce.dev.pages.Base.NavigationBar;
 import com.salesforce.dev.pages.Home.HomePage;
 import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.MainPage;
-
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.Assert;
 
 /**
  * Created by Walter on 13/06/2015.
@@ -49,7 +47,7 @@ public class EditAccount {
     private String shippingAddress = "Shipping Address";
     private String customerPriority= "High"; //Selected Item
     private String sla= "Gold"; //Selected Item
-    private String upsellOpportunity= "Yes"; //Selected Item
+    private String upSellOpportunity= "Yes"; //Selected Item
     private String active = "Yes";
     private String slaExpirationDate = "12/31/2015";
     private String slaSerialNumber= "123-456-78";
@@ -98,7 +96,7 @@ public class EditAccount {
         accountForm.setAccountShippingStreetFld(shippingAddress);
         accountForm.setAccountCustomerPriorityFld(customerPriority);
         accountForm.setAccountSLAFld(sla);
-        accountForm.setAccountUpsellOpportunityFld(upsellOpportunity);
+        accountForm.setAccountUpsellOpportunityFld(upSellOpportunity);
         accountForm.setAccountActiveFld(active);
         accountForm.setAccountSLAExpirationDateFld(slaExpirationDate);
         accountForm.setAccountSLASerialNumberFld(slaSerialNumber);
@@ -125,7 +123,7 @@ public class EditAccount {
         Assert.assertTrue(accountDetail.validateAccountShippingAddressFld(shippingAddress));
         Assert.assertTrue(accountDetail.validateAccountCustomPriorityFld(customerPriority));
         Assert.assertTrue(accountDetail.validateAccountSLAFld(sla));
-        Assert.assertTrue(accountDetail.validateAccountUpsellOportunityFld(upsellOpportunity));
+        Assert.assertTrue(accountDetail.validateAccountUpSellOpportunityFld(upSellOpportunity));
         Assert.assertTrue(accountDetail.validateAccountActiveFld(active));
         Assert.assertTrue(accountDetail.validateAccountSLAExpirationDateFld(slaExpirationDate));
         Assert.assertTrue(accountDetail.validateAccountSerialNumberFld(slaSerialNumber));

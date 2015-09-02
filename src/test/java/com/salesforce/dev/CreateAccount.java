@@ -40,6 +40,7 @@ public class CreateAccount {
 
     @Test(groups = {"Acceptance"})
     public void testCreateAccount() {
+
         NavigationBar navigationBar = mainPage.gotoNavBar();
         AccountsHome accountsHome = navigationBar.goToAccountsHome();
         AccountForm accountForm = accountsHome.clickNewBtn();
@@ -90,7 +91,7 @@ public class CreateAccount {
         Assert.assertTrue(accountDetail.validateAccountShippingAddressFld(account.getShippingAddress()));
         Assert.assertTrue(accountDetail.validateAccountCustomPriorityFld(account.getCustomerPriority()));
         Assert.assertTrue(accountDetail.validateAccountSLAFld(account.getSla()));
-        Assert.assertTrue(accountDetail.validateAccountUpsellOportunityFld(account.getUpsellOpportunity()));
+        Assert.assertTrue(accountDetail.validateAccountUpSellOpportunityFld(account.getUpsellOpportunity()));
         Assert.assertTrue(accountDetail.validateAccountActiveFld(account.getActive()));
         Assert.assertTrue(accountDetail.validateAccountSLAExpirationDateFld(account.getSlaExpirationDate()));
         Assert.assertTrue(accountDetail.validateAccountSerialNumberFld(account.getSlaSerialNumber()));

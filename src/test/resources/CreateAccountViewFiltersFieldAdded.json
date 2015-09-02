@@ -1,0 +1,21 @@
+[{
+"viewName":"view account test",
+"uniqueViewName":"viewAccount01",
+"filterByOwner":"All Accounts",
+"additionalFields":[
+                  {"fieldFilter":"Account Name",
+                    "operatorFilter":"contains",
+                    "valueFilter":"ac"
+                  },
+                  {"fieldFilter":"Fax",
+                    "operatorFilter":"equals",
+                    "valueFilter":"1010"
+                  }
+                   ],
+"fieldsDisplay":[
+                {"fieldToDisplay":"Fax"},
+                {"fieldToDisplay":"Website"},
+                {"fieldToDisplay":"Shipping City"}
+                ],
+"restrictVisibility":"all users"
+}]
