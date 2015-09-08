@@ -47,15 +47,5 @@ public class JSONMapper {
         return account;
     }
 
-  public static Product getProduct(){
-        Product product = new Product();
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            product = mapper.readValue(new File("src\\test\\resources\\CreateProduct.json"), Product.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return product;
-    }
 
 }

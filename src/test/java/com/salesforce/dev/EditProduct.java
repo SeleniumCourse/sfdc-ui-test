@@ -1,4 +1,8 @@
 package com.salesforce.dev;
+import com.salesforce.dev.framework.DataDrivenManager;
+import com.salesforce.dev.framework.JSONMapper;
+import com.salesforce.dev.framework.Objects.Product;
+import com.salesforce.dev.framework.Objects.ViewSalesForce;
 import com.salesforce.dev.pages.Base.NavigationBar;
 import com.salesforce.dev.pages.Home.HomePage;
 import com.salesforce.dev.pages.Home.LoginPage;
@@ -14,6 +18,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.salesforce.dev.framework.Environment;
 import com.salesforce.dev.pages.*;
+
+import java.util.Iterator;
+
 /**
  * Created by Monica Pardo on 6/10/2015.
  */
@@ -27,31 +34,37 @@ public class EditProduct {
     private HomePage homePage;
     private MainPage mainPage;
     private NavigationBar navigationBar;
-    private String productName="New product";
+    Product oppPro;
 
-    @BeforeMethod
+
+    @DataProvider(name = "dataDriven")
+    public Iterator<Product[]> getProduct() {
+        DataDrivenManager dataDrivenManager = new DataDrivenManager();
+        return dataDrivenManager.getProduct("EditProduct.json");
+    }
+    @BeforeMethod(groups = {"Acceptance"})
     public void setUp() {
         mainPage = Transporter.driverMainPage();
         navigationBar = mainPage.gotoNavBar();
-        productsHome=navigationBar.goToProductsHome();
-        productForm=productsHome.clickNewBtn();
-        ProductForm productForm= new ProductBuilder(productName)
-                .setProductName(productName).build();
-        productDetails=productForm.saveProduct();
+        productsHome = navigationBar.goToProductsHome();
 
     }
 
-    @Test(groups = {"Acceptance"}, dataProvider = "getProductValues")
-    public void testEditProduct(String productNewName,String prodNewCode,String prodNewDesc) {
+    @Test(groups = {"Acceptance"}, dataProvider = "dataDriven")
+    public void testEditProduct(Product product) {
+        mainPage = Transporter.driverMainPage();
+        navigationBar = mainPage.gotoNavBar();
+        productsHome = navigationBar.goToProductsHome();
+        productDetails = productsHome.selectRecentItem(product.getProductName());
         productDetails.clickEditBtn();
-        ProductForm productForm= new ProductBuilder(productNewName)
-                .setProductName(productNewName)
-                .setProductCode(prodNewCode)
-                .setProductDesc(prodNewDesc).build();
+        ProductForm productForm= new ProductBuilder(product.productName, product.productCode, product.productDescription)
+                .setProductName(product.productName)
+                .setProductCode(product.productCode)
+                .setProductDesc(product.productDescription).build();
                 productForm.setProductActive();
         productDetails=productForm.saveProduct();
 
-        Assert.assertTrue(productDetails.VerifyProduct(productNewName), "product Name Was not updated");
+        Assert.assertTrue(productDetails.VerifyProduct(product.productName), "product Name Was not updated");
 
     }
 
@@ -60,10 +73,7 @@ public class EditProduct {
         productDetails.clickDeleteBtn(true);
 
     }
-    @DataProvider
-    public Object[][] getProductValues() {
-        return new Object[][]{{"New product update","Codigo2","this is an update product"}};
-    }
+
 }
 
 

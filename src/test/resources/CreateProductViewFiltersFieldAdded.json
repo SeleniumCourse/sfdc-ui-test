@@ -1,0 +1,21 @@
+[{
+"viewName":"view product1",
+"uniqueViewName":"viewproduct1",
+"filterByOwner":"Across Price Books",
+"additionalFields":[
+                  {"fieldFilter":"Price Book Name",
+                    "operatorFilter":"not equals to",
+                    "valueFilter":"0"
+                  },
+                  {"fieldFilter":"Created Date",
+                    "operatorFilter":"greater than",
+                    "valueFilter":"9/7/2015"
+                  }
+                   ],
+"fieldsDisplay":[
+                {"fieldToDisplay":"Price Book Name"},
+                {"fieldToDisplay":"Created Date"},
+                {"fieldToDisplay":"Last Modified Date"}
+                ],
+"restrictVisibility":"all users"
+}]

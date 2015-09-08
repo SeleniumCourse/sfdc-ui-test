@@ -109,33 +109,4 @@ public class DataDrivenManager {
         }
         return campaignsArray.iterator();
     }
-
-    public Iterator<Product[]> getProduct(String fileJson){
-
-        Collection<Product[]> productArray =new ArrayList<Product[]>();
-        try {
-            parser = new JSONParser();
-            Object jsonObject = parser.parse(new FileReader("src/test/resources/" + fileJson));
-            JSONArray jsonArray = (JSONArray) jsonObject;
-
-            ObjectMapper objectMapper = new ObjectMapper();
-
-            List<Product> navigation = objectMapper.readValue(jsonArray.toJSONString(),
-                    objectMapper.getTypeFactory().constructCollectionType(
-                            List.class, Product.class));
-
-            for (int i = 0 ; i< navigation.size(); i++){
-                Product product = (Product)navigation.get(i);
-                productArray.add(new Product[]{product});
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return productArray.iterator();
-    }
 }
