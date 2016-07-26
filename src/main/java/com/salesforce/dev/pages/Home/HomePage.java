@@ -1,9 +1,9 @@
 package com.salesforce.dev.pages.Home;
 
-import com.salesforce.dev.pages.AbstractBasePage;
-import com.salesforce.dev.framework.Environment;
-import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.framework.DriverManager;
+import com.salesforce.dev.framework.Environment;
+import com.salesforce.dev.pages.AbstractBasePage;
+import com.salesforce.dev.pages.MainPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +17,7 @@ import static com.salesforce.dev.framework.CommonOperation.clickWebElement;
 
 public class HomePage extends AbstractBasePage {
 
-    private static MainPage loginInstance;
+    private static MainPage mainPage;
 
     @FindBy(id = "button-login")
     @CacheLookup
@@ -35,12 +35,11 @@ public class HomePage extends AbstractBasePage {
     }
 
     public MainPage getLogin() {
-        if (loginInstance == null) {
-            loginInstance = new MainPage();
+        if (mainPage == null) {
+            mainPage = new MainPage();
         }
-        return loginInstance;
+        return mainPage;
     }
-
     public MainPage loginAsPrimaryUser() {
         LoginPage loginPage = this.clickLoginBtn();
         return loginPage.loginAs(Environment.getInstance().getPrimaryUser(), Environment.getInstance().getPrimaryPassword());

@@ -17,9 +17,11 @@ public class Transporter {
         mainPage = homePage.loginAsPrimaryUser();
 
     }
+
     public static MainPage driverMainPage(){
         return mainPage;
     }
+
     public static void logout(){
         TopHeader topHeader = mainPage.gotoTopHeader();
         String displayName= Environment.getInstance().getDisplayName();

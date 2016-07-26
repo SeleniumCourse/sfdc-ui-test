@@ -3,9 +3,7 @@ package com.salesforce.dev.framework;
 /**
  * Created by Walter on 27/06/2015.
  */
-import org.apache.log4j.*;
-
-import java.io.IOException;
+import org.apache.log4j.Logger;
 
 public class LoggerManager {
 

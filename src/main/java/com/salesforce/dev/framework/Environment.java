@@ -11,6 +11,32 @@ import java.util.Properties;
  */
 public class Environment {
 
+    private static final String PRIMARY_USER_NAME = "primaryUserName";
+
+    private static final String PRIMARY_USER_PASSWORD = "primaryUserPassword";
+
+    private static final String BROWSER = "browser";
+
+    private static final String GROUPS = "groups";
+
+    private static final String DISPLAY_NAME = "displayName";
+
+    private static final String MODE = "mode";
+
+    private static final String USER_NAME = "userName";
+
+    private static final String KEY = "key";
+
+    private static final String PRIMARY_USE_PASSWORD_TOKEN = "primaryUsePasswordToken";
+
+    private static final String URL_API = "urlApi";
+
+    private static final String BROWSER_REMOTE = "browserRemote";
+
+    private static final String PLATFORM_REMOTE = "platformRemote";
+
+    private static final String VERSION_REMOTE = "versionRemote";
+
     private static Environment environment;
     private Properties properties;
 
@@ -49,51 +75,55 @@ public class Environment {
     }
 
     public String getPrimaryUser() {
-        return getEnv("primaryUserName");
+        return getEnv(PRIMARY_USER_NAME);
     }
 
     public String getPrimaryPassword() {
-        return getEnv("primaryUserPassword");
+        return getEnv(PRIMARY_USER_PASSWORD);
     }
 
-    public String getBrowser(){
-        return getEnv("browser");
+    public String getBrowser() {
+        return getEnv(BROWSER);
     }
 
-    public String getGroups() {return getEnv("groups");}
+    public String getGroups() {
+        return getEnv(GROUPS);
+    }
 
     public String getDisplayName() {
-        return getEnv("displayName");
+        return getEnv(DISPLAY_NAME);
     }
 
     public String getMode() {
-        return getEnv("mode");
+        return getEnv(MODE);
     }
+
     public String getUserName() {
-        return getEnv("userName");
+        return getEnv(USER_NAME);
     }
+
     public String getKey() {
-        return getEnv("key");
+        return getEnv(KEY);
     }
 
-    public String getPrimaryUserPasswordToken(){
-        return getEnv("primaryUsePasswordToken");
+    public String getPrimaryUserPasswordToken() {
+        return getEnv(PRIMARY_USE_PASSWORD_TOKEN);
     }
 
-    public String getUrlApi(){
-        return getEnv("urlApi");
+    public String getUrlApi() {
+        return getEnv(URL_API);
     }
 
-    public String getBrowserRemote(){
-        return getEnv("browserRemote");
+    public String getBrowserRemote() {
+        return getEnv(BROWSER_REMOTE);
     }
 
-    public String getPlatformRemote(){
-        return getEnv("platformRemote");
+    public String getPlatformRemote() {
+        return getEnv(PLATFORM_REMOTE);
     }
 
-    public String getVersionRemote(){
-        return getEnv("versionRemote");
+    public String getVersionRemote() {
+        return getEnv(VERSION_REMOTE);
     }
 
 }
