@@ -23,8 +23,10 @@ public class CreateLead {
     Lead lead;
 
 
+
     @BeforeMethod(groups = {"Acceptance"})
     public void setUp(){
+        System.out.println();
         mainPage = Transporter.driverMainPage();
         navBar = mainPage.gotoNavBar();
 

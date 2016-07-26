@@ -1,7 +1,5 @@
 package com.salesforce.dev;
 
-import com.salesforce.dev.framework.DataDrivenManager;
-import com.salesforce.dev.framework.Environment;
 import com.salesforce.dev.framework.JSONMapper;
 import com.salesforce.dev.framework.Objects.Account;
 import com.salesforce.dev.pages.Accounts.AccountDetail;
@@ -9,8 +7,6 @@ import com.salesforce.dev.pages.Accounts.AccountForm;
 import com.salesforce.dev.pages.Accounts.AccountsHome;
 import com.salesforce.dev.pages.Base.NavigationBar;
 import com.salesforce.dev.pages.Home.HomePage;
-import com.salesforce.dev.pages.Home.LoginPage;
-import com.salesforce.dev.pages.Login.Transporter;
 import com.salesforce.dev.pages.MainPage;
 
 import org.testng.annotations.AfterMethod;
@@ -31,7 +27,7 @@ public class CreateAccount {
     @BeforeMethod(groups = {"BVT"})
     public void setUp() {
         homePage = new HomePage();
-        mainPage = homePage.getLogin();
+        mainPage = homePage.loginAsPrimaryUser();
     }
 
     @Test(groups = {"Acceptance"})
@@ -57,7 +53,7 @@ public class CreateAccount {
             .setAccountShippingStreetFld(account.getShippingAddress())
             .setAccountCustomerPriorityFld(account.getCustomerPriority())
             .setAccountSLAFld(account.getSla())
-            .setAccountUpsellOpportunityFld(account.getUpSellOpportunity())
+            .setAccountUpsellOpportunityFld(account.getUpsellOpportunity())
             .setAccountActiveFld(account.getActive())
             .setAccountSLAExpirationDateFld(account.getSlaExpirationDate())
             .setAccountSLAExpirationDateFld(12,15,2016)

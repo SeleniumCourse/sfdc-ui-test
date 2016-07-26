@@ -4,6 +4,7 @@ package com.salesforce.dev.framework.Objects;
  * Created by Walter Mercado on 6/24/2015.
  */
 public class Account {
+
     private String accountName;
     private String accountDesc;
     private String rating;
@@ -28,7 +29,7 @@ public class Account {
     private String slaExpirationDate;
     private String slaSerialNumber;
     private Integer numberOfLocations;
-
+    
     public Account(){}
 
     public String getAccountName() {
@@ -183,12 +184,12 @@ public class Account {
         this.sla = sla;
     }
 
-    public String getUpSellOpportunity() {
+    public String getUpsellOpportunity() {
         return upsellOpportunity;
     }
 
-    public void setUpSellOpportunity(String upSellOpportunity) {
-        this.upsellOpportunity = upsellOpportunity;
+    public void setUpsellOpportunity(String opportunity) {
+        this.upsellOpportunity = this.upsellOpportunity;
     }
 
     public String getActive() {
