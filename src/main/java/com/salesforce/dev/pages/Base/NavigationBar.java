@@ -30,7 +30,7 @@ public class NavigationBar {
     WebDriver driver;
     WebDriverWait wait;
 
-    @FindBy(linkText ="Campaigns")
+    @FindBy(id ="Campaign_Tab")
     WebElement campaignsTab;
 
     @FindBy(linkText ="Leads")
@@ -42,7 +42,7 @@ public class NavigationBar {
     @FindBy(linkText = "Contacts")
     WebElement contactsTab;
 
-    @FindBy(linkText = "Opportunities")
+    @FindBy(id = "Opportunity_Tab")
     WebElement opportunitiesTab;
 
     @FindBy(linkText = "Products")

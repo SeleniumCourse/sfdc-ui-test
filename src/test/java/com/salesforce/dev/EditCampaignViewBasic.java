@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+
 /**
  * Created by Veronica Prado on 8/22/2015.
  */
@@ -41,6 +42,7 @@ public class EditCampaignViewBasic {
     @BeforeMethod(groups = {"Acceptance"})
     public void setUp() {
         ViewSalesForce viewSalesForce = CampaignGenie.getCampaignView("CreateCampaignViewBasic.json");
+        Transporter.login ();
         nameView = viewSalesForce.getViewName();
         mainPage = Transporter.driverMainPage();
         navigationBar = mainPage.gotoNavBar();

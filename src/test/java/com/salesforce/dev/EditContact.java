@@ -37,7 +37,6 @@ public class EditContact {
     private NavigationBar navigationBar;
     private AccountsHome accountsHome;
     private AccountForm accountForm;
-
     private SearchLookupBase searchLookup;
 
     @BeforeMethod(groups = {"Acceptance"})
