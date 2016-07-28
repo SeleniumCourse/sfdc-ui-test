@@ -4,9 +4,8 @@ import java.util.Iterator;
 
 import com.salesforce.dev.framework.DataDrivenManager;
 import com.salesforce.dev.framework.Objects.ViewSalesForce;
-import com.salesforce.dev.framework.RandomGenerator;
 import com.salesforce.dev.pages.Base.NavigationBar;
-import com.salesforce.dev.pages.Login.Transporter;
+import com.salesforce.dev.pages.Home.HomePage;
 import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.pages.Opportunities.OpportunitiesHome;
 import com.salesforce.dev.pages.Opportunities.OpportunityView;
@@ -40,7 +39,7 @@ public class CreateOpportunityViewBasic {
     public void setUp() {
      
         homePage = new HomePage();
-        mainPage = homePage.loginAsPrimaryUser();
+        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
     }
 

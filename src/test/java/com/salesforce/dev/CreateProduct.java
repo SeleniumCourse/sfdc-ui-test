@@ -28,7 +28,7 @@ public class CreateProduct {
     @BeforeMethod(groups = {"Acceptance"})
     public void setUp(){
         homePage = new HomePage();
-        mainPage = homePage.loginAsPrimaryUser();
+        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
 
     }

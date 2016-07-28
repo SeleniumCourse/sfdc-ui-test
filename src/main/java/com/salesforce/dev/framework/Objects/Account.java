@@ -23,7 +23,7 @@ public class Account {
     private String shippingAddress;
     private String customerPriority;
     private String sla;
-    private String upsellOpportunity;
+    private String upSellOpportunity;
     private String active;
     private String slaExpirationDate;
     private String slaSerialNumber;
@@ -184,11 +184,11 @@ public class Account {
     }
 
     public String getUpSellOpportunity() {
-        return upsellOpportunity;
+        return upSellOpportunity;
     }
 
     public void setUpSellOpportunity(String upSellOpportunity) {
-        this.upsellOpportunity = upsellOpportunity;
+        this.upSellOpportunity = this.upSellOpportunity;
     }
 
     public String getActive() {

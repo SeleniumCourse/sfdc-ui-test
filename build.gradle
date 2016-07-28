@@ -41,7 +41,7 @@ dependencies {
     compile 'com.force.api:force-partner-api:35.0.0'
     compile 'com.force.api:force-wsc:35.0.0'
     compile 'com.force.api:force-apex-api:35.0.0'
-    compile 'org.testng:testng:6.9.6'
+    compile 'org.testng:testng:6.9.10'
     compile 'com.googlecode.json-simple:json-simple:1.1.1'
     compile 'com.fasterxml.jackson.core:jackson-core:2.5.4'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.4'

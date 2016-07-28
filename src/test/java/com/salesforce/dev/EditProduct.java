@@ -2,7 +2,6 @@ package com.salesforce.dev;
 import com.salesforce.dev.pages.Base.NavigationBar;
 import com.salesforce.dev.pages.Home.HomePage;
 import com.salesforce.dev.pages.Home.LoginPage;
-import com.salesforce.dev.pages.Login.Transporter;
 import com.salesforce.dev.pages.Product.ProductBuilder;
 import com.salesforce.dev.pages.Product.ProductDetails;
 import com.salesforce.dev.pages.Product.ProductForm;
@@ -12,7 +11,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.salesforce.dev.framework.Environment;
 import com.salesforce.dev.pages.*;
 /**
  * Created by Monica Pardo on 6/10/2015.
@@ -31,7 +29,7 @@ public class EditProduct {
 
     @BeforeMethod
     public void setUp() {
-        mainPage = Transporter.driverMainPage();
+        mainPage = LoginPage.loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
         productsHome=navigationBar.goToProductsHome();
         productForm=productsHome.clickNewBtn();

@@ -58,7 +58,7 @@ public class EditAccount {
     @BeforeMethod(groups = {"Acceptance"})
     public void setUp() {
         homePage = new HomePage();
-        mainPage = homePage.loginAsPrimaryUser();
+        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
 //        mainPage = Transporter.driverMainPage();
 //

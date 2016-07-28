@@ -48,7 +48,7 @@ public class CreateLead {
     public void setUp(){
         //mainPage = Transporter.driverMainPage();
         homePage = new HomePage();
-        mainPage = homePage.loginAsPrimaryUser();
+        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
         navBar = mainPage.gotoNavBar();
 
         lead = JSONMapper.getLead("src\\test\\resources\\CreateLead.json");
@@ -114,7 +114,6 @@ public class CreateLead {
                 lead.stateProvince + " " +
                 lead.zipCode + "\n" +
                 lead.country, "The address is not correct");//needs to review
-
 
         Assert.assertEquals(leadDetail.getProductInterest(), lead.productInterest,"The product interest is not correct");
         Assert.assertEquals(leadDetail.getSICcode(), lead.SICCode,"The SICCode is not correct");

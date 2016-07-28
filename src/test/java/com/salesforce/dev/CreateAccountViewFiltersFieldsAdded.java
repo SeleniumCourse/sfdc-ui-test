@@ -12,7 +12,7 @@ import com.salesforce.dev.pages.Accounts.AccountView;
 import com.salesforce.dev.pages.Accounts.AccountViewDetail;
 import com.salesforce.dev.pages.Accounts.AccountsHome;
 import com.salesforce.dev.pages.Base.NavigationBar;
-import com.salesforce.dev.pages.Login.Transporter;
+import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.MainPage;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -40,7 +40,7 @@ public class CreateAccountViewFiltersFieldsAdded {
 
     @Test(groups = {"Regression"}, dataProvider = "dataDriven")
     public void testCreateCampaignViewWithFilters(ViewSalesForce viewSalesForce) {
-        mainPage = Transporter.driverMainPage();
+        mainPage = LoginPage.loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
         accountsHome = navigationBar.goToAccountsHome();
         accountView = accountsHome.clickNewViewLnk()

@@ -1,12 +1,16 @@
 package com.salesforce.dev;
 
-import com.salesforce.dev.framework.JSONMapper;
+import com.salesforce.dev.framework.Objects.Campaign;
 import com.salesforce.dev.framework.Objects.Lead;
+import com.salesforce.dev.pages.Base.NavigationBar;
 import com.salesforce.dev.pages.Common;
 import com.salesforce.dev.pages.Home.HomePage;
-import com.salesforce.dev.pages.Leads.*;
-import com.salesforce.dev.pages.Login.Transporter;
+import com.salesforce.dev.pages.Home.LoginPage;
+import com.salesforce.dev.pages.Leads.LeadDetail;
+import com.salesforce.dev.pages.Leads.LeadForm;
+import com.salesforce.dev.pages.Leads.LeadsHome;
 import com.salesforce.dev.pages.MainPage;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,24 +20,34 @@ import org.testng.annotations.Test;
  * Created by jimmy vargas on 6/21/2015.
  */
 public class EditLead {
-    HomePage homePage;
-    MainPage mainPage;
+    private static final Logger LOGGER = Logger.getLogger (EditLead.class.getName ());
+    private HomePage homePage;
+    private MainPage mainPage;
+    private Campaign campaign;
+    private NavigationBar navBar;
 
-    Lead lead,leadEditEnum;
+    private Lead lead,leadEditEnum;
 
     @BeforeMethod(groups = {"Acceptance"})
     public void setup(){
-        lead = JSONMapper.getLead("src/test/resources/CreateLeadBase.json");
-        leadEditEnum = JSONMapper.getLead("src/test/resources/EditLead.json");
+//        ///create campaign
+//        campaign= CampaignGenie.getCampaign();
+//        //create parent Campaign
+//        CampaignGenie.createParentCampaign(campaign.getParentCampaign());
+//
+//        lead = JSONMapper.getLead("src/test/resources/CreateLeadBase.json");
+//        leadEditEnum = JSONMapper.getLead("src/test/resources/EditLead.json");
 
         //Creating a lead
         Common.createLead(lead);
 
+        mainPage = LoginPage.loginAsPrimaryUser ();
+        navBar = mainPage.gotoNavBar ();
     }
 
     @Test(groups = {"Acceptance"})
     public void testEditLead(){
-        mainPage = Transporter.driverMainPage();
+        mainPage = LoginPage.loginAsPrimaryUser();
         LeadsHome leadsHome = mainPage.gotoNavBar().gotToLeadsHome();
         LeadDetail leadDetail= leadsHome.openLead(lead.lastName);
         LeadForm leadForm = leadDetail.clickEditBtn();
@@ -59,8 +73,6 @@ public class EditLead {
         Assert.assertEquals(leadDetail.getProductInterest(), leadEditEnum.productInterest, "The product interest is not equal");
         Assert.assertEquals(leadDetail.getPrimary(), leadEditEnum.primary, "The primary is not equal");
         Assert.assertEquals(leadDetail.getDescription(), leadEditEnum.description, "The description is not correct");
-
-
     }
 
     @AfterMethod(groups = {"Acceptance"})
@@ -68,6 +80,25 @@ public class EditLead {
         LeadsHome leadsHome = mainPage.gotoNavBar().gotToLeadsHome();
         LeadDetail leadDetail= leadsHome.openLead(leadEditEnum.lastName);
         leadDetail.deleteLead();
+//
+//        // Borrar campaign
+//        CampaignsHome campaignsHome;
+//        campaignsHome = mainPage.gotoNavBar().goToCampaignsHome();
+//        String campaignNameToUpdated = campaign.getCampaignName();
+//        String campaignParentName = campaign.getParentCampaign();
+//        CampaignDetail campaignDetail = campaignsHome.selectRecentItem (campaignNameToUpdated);
+//        campaignDetail.clickDeleteBtn(true);
+//        LOGGER.info ("Campaign was deleted");
+//        mainPage = campaignDetail.gotoMainPage();
+//        NavigationBar navigationBar = mainPage.gotoNavBar ();
+//        campaignsHome = navigationBar.goToCampaignsHome();
+//        campaignDetail = campaignsHome.selectRecentItem(campaignParentName );
+//        campaignDetail.clickDeleteBtn(true);
+//        LOGGER.info ("Campaign Parent was deleted");
+
+
+
+
 
     }
 }

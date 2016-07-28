@@ -5,10 +5,10 @@ import java.util.Iterator;
 import com.salesforce.dev.framework.DataDrivenManager;
 import com.salesforce.dev.framework.Objects.ViewSalesForce;
 import com.salesforce.dev.pages.Base.NavigationBar;
+import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.Leads.LeadView;
 import com.salesforce.dev.pages.Leads.LeadViewDetail;
 import com.salesforce.dev.pages.Leads.LeadsHome;
-import com.salesforce.dev.pages.Login.Transporter;
 import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.pages.Objects.LeadGenie;
 import org.apache.log4j.Logger;
@@ -40,7 +40,7 @@ public class EditLeadsViewBasic {
     public void setUp() {
         ViewSalesForce viewSalesForce = LeadGenie.getLeadsView("CreateLeadsViewBasic.json");
         viewName = viewSalesForce.getViewName();
-        mainPage = Transporter.driverMainPage();
+        mainPage = LoginPage.loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
         leadsHome = navigationBar.gotToLeadsHome();
         leadView = leadsHome.clickNewViewLnk()

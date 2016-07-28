@@ -2,11 +2,10 @@ package com.salesforce.dev;
 
 import com.salesforce.dev.framework.DataDrivenManager;
 import com.salesforce.dev.framework.Objects.Chatter;
-import com.salesforce.dev.framework.Objects.ViewSalesForce;
 import com.salesforce.dev.pages.Base.NavigationBar;
 import com.salesforce.dev.pages.Chatter.ChatterHome;
 import com.salesforce.dev.pages.Home.HomePage;
-import com.salesforce.dev.pages.Login.Transporter;
+import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -31,7 +30,7 @@ public class EditPostChatter {
         DataDrivenManager dataDrivenManager = new DataDrivenManager();
         Iterator<Chatter[]> chattersData = dataDrivenManager.getChatter("Chatter.json");
         Chatter createChatter = chattersData.next()[0];
-        mainPage = Transporter.driverMainPage();
+        mainPage = LoginPage.loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
         chatterHome = navigationBar.goToChatterHome();
         chatterHome.clickPost();

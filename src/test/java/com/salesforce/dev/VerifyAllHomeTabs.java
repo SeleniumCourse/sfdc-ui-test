@@ -33,7 +33,7 @@ public class VerifyAllHomeTabs {
 
     @BeforeMethod(groups = {"BVT"})
     public void setUp() {
-        mainPage = LoginPage.getLogin();
+        mainPage = LoginPage.loginAsPrimaryUser();
     }
 
     @Test(groups = {"BVT"})

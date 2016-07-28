@@ -10,7 +10,7 @@ import com.salesforce.dev.pages.Base.SearchLookupBase;
 import com.salesforce.dev.pages.Contacts.ContactDetail;
 import com.salesforce.dev.pages.Contacts.ContactForm;
 import com.salesforce.dev.pages.Contacts.ContactsHome;
-import com.salesforce.dev.pages.Home.HomePage;
+import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.MainPage;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -29,19 +29,16 @@ public class EditContact {
     private ContactsHome contactsHome;
     private ContactDetail contactDetail;
     private ContactForm contactForm;
-    private HomePage homePage;
     private MainPage mainPage;
     private AccountDetail accountDetail;
     private NavigationBar navigationBar;
     private AccountsHome accountsHome;
     private AccountForm accountForm;
-
     private SearchLookupBase searchLookup;
 
     @BeforeMethod(groups = {"Acceptance"})
     public void setUp() {
-        homePage = new HomePage();
-        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
+        mainPage = LoginPage.loginAsPrimaryUser();
 
         navigationBar = mainPage.gotoNavBar();
         accountsHome = navigationBar.goToAccountsHome();
@@ -107,7 +104,7 @@ public class EditContact {
         contactForm.setDescription(contact.getDescription());
         contactDetail = contactForm.clickSaveBtn();
 
-        Assert.assertTrue(contactDetail.validateContactName(contact.getcontactRole() + " " + contact.getFirstName() + " " + contact.getLastNameastName()));
+        Assert.assertTrue(contactDetail.validateContactName(String.format ("%s %s %s", contact.getcontactRole(), contact.getFirstName(), contact.getLastNameastName())));
     }
 
     @AfterMethod(groups = {"Acceptance"})

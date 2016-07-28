@@ -4,7 +4,6 @@ package com.salesforce.dev;
  * Created by Luffy on 22/06/2015.
  */
 
-import com.salesforce.dev.pages.Home.HomePage;
 import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.pages.TopHeader;
@@ -25,8 +24,7 @@ public class LogoutTest {
 
     @BeforeMethod(groups = {"BVT"})
     public void setUp() {
-        HomePage homePage = new HomePage();
-        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
+        mainPage = LoginPage.loginAsPrimaryUser();
     }
 
     @Test(groups = {"BVT"})

@@ -10,6 +10,7 @@ import com.salesforce.dev.pages.Contacts.ContactView;
 import com.salesforce.dev.pages.Contacts.ContactViewDetail;
 import com.salesforce.dev.pages.Contacts.ContactsHome;
 import com.salesforce.dev.pages.Home.HomePage;
+import com.salesforce.dev.pages.Home.LoginPage;
 import com.salesforce.dev.pages.MainPage;
 import com.salesforce.dev.pages.Objects.CampaignGenie;
 import org.apache.log4j.Logger;
@@ -27,12 +28,11 @@ public class EditContactView {
     private static final Logger LOGGER = Logger.getLogger(EditContactView.class.getName());
     private ContactsHome contactsHome;
     private ContactViewDetail contactViewDetail;
-    private HomePage homePage;
     private MainPage mainPage;
     private NavigationBar navigationBar;
-    private DataDrivenManager dataDriveManager = new DataDrivenManager();
     private ContactView contactView;
     private String nameView;
+    private static final String NAME_TEST = "anyname";
 
     @DataProvider(name = "dataDriven")
     public Iterator<ViewSalesForce[]> getValues() {
@@ -44,8 +44,7 @@ public class EditContactView {
     public void setUp() {
         ViewSalesForce viewSalesForce = CampaignGenie.getCampaignView("CreateContactView.json");
         nameView = viewSalesForce.getViewName();
-        homePage = new HomePage();
-        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
+        mainPage = LoginPage.loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
         contactsHome = navigationBar.goToContactsHome();
         contactView = contactsHome.clickNewViewLnk()
@@ -54,15 +53,11 @@ public class EditContactView {
         contactViewDetail = contactView.clickSaveBtn();
     }
 
-
     @Test(groups = {"Acceptance"}, dataProvider = "dataDriven")
     public void testEditContact(ViewSalesForce viewSalesForceUpdate) {
-        homePage = new HomePage();
-        mainPage = homePage.clickLoginBtn().loginAsPrimaryUser();
+        mainPage = LoginPage.loginAsPrimaryUser();
         navigationBar = mainPage.gotoNavBar();
         contactsHome = navigationBar.goToContactsHome();
-        String fieldToUpdate = "View Name";
-        String newValue = "viewUpdatedContact" + RamdonGenerator.getInstance().getRamdonString();
         contactView = contactsHome.clickEditViewLnk(nameView)
                 .setViewName(viewSalesForceUpdate.getViewName())
                 .setUniqueViewName(viewSalesForceUpdate.getUniqueViewName())
@@ -70,7 +65,7 @@ public class EditContactView {
                 .checkFilterByOwnerMy()
                 .selectRestrictVisibility(viewSalesForceUpdate.getRestrictVisibility());
         contactViewDetail = contactView.clickSaveBtn();
-        Assert.assertFalse(contactViewDetail.validateNameView("anyname"));
+        Assert.assertFalse(contactViewDetail.validateNameView(NAME_TEST));
     }
 
     @AfterMethod(groups = {"Acceptance"})
@@ -80,7 +75,5 @@ public class EditContactView {
         mainPage = contactViewDetail.gotoMainPage();
         navigationBar = mainPage.gotoNavBar();
         contactsHome = navigationBar.goToContactsHome();
-        contactViewDetail.clickDeleteLnk(true);
-        LOGGER.info("Contact Parent was deleted");
     }
 }

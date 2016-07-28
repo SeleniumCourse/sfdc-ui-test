@@ -18,7 +18,7 @@
   "shippingAddress" : "Shipping Address",
   "customerPriority" : "High",
   "sla" : "Gold",
-  "upsellOpportunity" : "Yes",
+  "upSellOpportunity" : "Yes",
   "active" : "Yes",
   "slaExpirationDate" : "6/15/2016",
   "slaSerialNumber" : "123-456-78",

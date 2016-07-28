@@ -29,8 +29,8 @@ public class NavigationBar extends AbstractBasePage {
     @FindBy(linkText = "Orders")
     private WebElement ordersTab;
 
-    @FindBy(linkText = "Campaigns")
-    private WebElement campaignsTab;
+    @FindBy(id ="Campaign_Tab")
+    WebElement campaignsTab;
 
     @FindBy(linkText = "Leads")
     private WebElement leadsTab;
@@ -41,8 +41,8 @@ public class NavigationBar extends AbstractBasePage {
     @FindBy(linkText = "Contacts")
     private WebElement contactsTab;
 
-    @FindBy(linkText = "Opportunities")
-    private WebElement opportunitiesTab;
+    @FindBy(id = "Opportunity_Tab")
+    WebElement opportunitiesTab;
 
     @FindBy(linkText = "Products")
     private WebElement productsTab;
