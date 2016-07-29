@@ -19,6 +19,8 @@ public class APIConnector {
     private String primaryUserName = Environment.getInstance().getPrimaryUser();
     private String primaryUserPasswordToken = Environment.getInstance().getPrimaryUserPasswordToken();
     private String urlApi = Environment.getInstance().getUrlApi();
+    private String proxyHost = Environment.getInstance().getProxyHost ();
+    private int proxyPort = Environment.getInstance().getProxyPort();
 
     private APIConnector() {
         this.initializer();
@@ -30,7 +32,7 @@ public class APIConnector {
         config.setPassword(primaryUserPasswordToken);
         config.setAuthEndpoint(urlApi);
         config.setServiceEndpoint(urlApi);
-        config.setProxy("172.20.240.5", 8080);
+        config.setProxy(proxyHost, proxyPort);
         try {
             connection = com.sforce.soap.partner.Connector.newConnection(config);
         } catch (ConnectionException e) {

@@ -37,6 +37,10 @@ public class Environment {
 
     private static final String VERSION_REMOTE = "versionRemote";
 
+    private static final String PROXY_HOST = "proxyHost";
+
+    private static final String PROXY_PORT = "proxyPort";
+
     private static Environment environment;
     private Properties properties;
 
@@ -126,4 +130,7 @@ public class Environment {
         return getEnv(VERSION_REMOTE);
     }
 
+    public String getProxyHost(){return getEnv (PROXY_HOST);}
+
+    public int getProxyPort(){return Integer.valueOf (getEnv (PROXY_PORT));}
 }
