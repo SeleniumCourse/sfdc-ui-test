@@ -1,9 +1,10 @@
-package com.salesforce.dev.framework.soap;
+package com.salesforce.dev.pages.objects;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.salesforce.dev.framework.soap.APIConnector;
 import com.salesforce.dev.framework.utils.DataDrivenManager;
 import com.salesforce.dev.framework.dto.Campaign;
 import com.salesforce.dev.framework.dto.ViewSalesForce;
@@ -13,32 +14,28 @@ import com.sforce.ws.ConnectionException;
 import org.apache.log4j.Logger;
 
 /**
+ * Created by Veronica Prado on 8/25/2015.
  * Class to get data related to Campaign
- *
- * @author Veronica Prado
  */
 public class CampaignGenie {
-
     private static final Logger LOGGER = Logger.getLogger(CampaignGenie.class.getName());
 
     public static ViewSalesForce getCampaignView(String jsonFile) {
         Iterator<Object[]> iteratorViewData = DataDrivenManager.getObjects(jsonFile, ViewSalesForce.class);
-        List<ViewSalesForce[]> listData = new ArrayList<>();
+        List<ViewSalesForce[]> listData = new ArrayList<ViewSalesForce[]>();
         while (iteratorViewData.hasNext()) {
             listData.add((ViewSalesForce[])iteratorViewData.next());
         }
-        ViewSalesForce viewSalesForce = listData.get(0)[0];
-        return viewSalesForce;
+        return listData.get(0)[0];
     }
 
     public static Campaign getCampaign() {
         Iterator<Object[]> iteratorCampaignData = DataDrivenManager.getObjects("CreateCampaign.json", Campaign.class);
-        List<Campaign[]> listData = new ArrayList<>();
+        List<Campaign[]> listData = new ArrayList<Campaign[]>();
         while (iteratorCampaignData.hasNext()) {
             listData.add((Campaign[]) iteratorCampaignData.next());
         }
-        Campaign campaign = listData.get(0)[0];
-        return campaign;
+        return listData.get(0)[0];
     }
 
     public static void createParentCampaign(String nameCampaign) {
@@ -53,4 +50,5 @@ public class CampaignGenie {
             LOGGER.error("Error on Create parent campaign by Api :", e);
         }
     }
+
 }

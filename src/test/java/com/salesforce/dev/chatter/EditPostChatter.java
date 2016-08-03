@@ -24,7 +24,6 @@ import java.util.Iterator;
 public class EditPostChatter {
     private ChatterHome chatterHome;
     private Chatter createChatter;
-    private DataDrivenManager dataDrivenManager = new DataDrivenManager();
 
     @BeforeMethod(groups = {"Acceptance"})
     public void setUp() {
@@ -47,8 +46,8 @@ public class EditPostChatter {
     }
 
     private Chatter getChatter(String fileJson) {
-        Iterator<Chatter[]> chattersData = dataDrivenManager.getChatter(fileJson);
-        return chattersData.next()[0];
+        Iterator<Object[]> chattersData = DataDrivenManager.getObjects(fileJson, Chatter.class);
+        return (Chatter) chattersData.next()[0];
     }
 
     @AfterMethod(groups = {"Acceptance"})

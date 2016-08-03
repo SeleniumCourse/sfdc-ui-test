@@ -1,5 +1,6 @@
 package com.salesforce.dev.lead;
 
+import org.testng.Assert;
 import com.salesforce.dev.framework.dto.Lead;
 import com.salesforce.dev.framework.utils.JSONMapper;
 import com.salesforce.dev.pages.LoginPage;
@@ -36,7 +37,6 @@ public class EditLead {
 
         //Creating a lead
         ObjectGenie.createLead(lead);
-
     }
 
     @Test(groups = {"Acceptance"})
@@ -58,15 +58,8 @@ public class EditLead {
         leadDetail = leadForm.clickSaveBtn();
 
         //assertions
-        assertTrue(leadDetail.getName().contains(leadEditEnum.lastName), "The actual name doesn't contain the lastname" + lead.lastName);
-        assertEquals(leadDetail.getCompany(), leadEditEnum.company, "The company is not equal");
-        assertEquals(leadDetail.getPhone(), leadEditEnum.phone, "The phone is not equal");
-        assertEquals(leadDetail.getWebsite(), "http://" + leadEditEnum.website, "The website is not equal");
-        assertEquals(leadDetail.getLeadStatus(), leadEditEnum.leadStatus, "The lead is not equal");
-        assertEquals(leadDetail.getNumEmployees(), leadEditEnum.numEmployees, "The number of employees is not equal");
-        assertEquals(leadDetail.getProductInterest(), leadEditEnum.productInterest, "The product interest is not equal");
-        assertEquals(leadDetail.getPrimary(), leadEditEnum.primary, "The primary is not equal");
-        assertEquals(leadDetail.getDescription(), leadEditEnum.description, "The description is not correct");
+        Assert.assertEquals(leadDetail.getWebsite(), "http://" + leadEditEnum.website, "The website is not correct");
+        leadDetail.validateFields(leadEditEnum);
     }
 
     @AfterMethod(groups = {"Acceptance"})
