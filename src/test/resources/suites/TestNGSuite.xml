@@ -2,36 +2,36 @@
 <suite name="SuiteFull" verbose="1" >
     <test name="Full">
         <classes>
-            <class name="com.salesforce.dev.campaign.CreateCampaign"/>
-            <class name="com.salesforce.dev.campaign.CreateCampaignViewBasic"/>
-            <class name="com.salesforce.dev.campaign.CreateCampaignViewFiltersFieldsAdded"/>
-            <class name="com.salesforce.dev.accounts.CreateAccountViewBasic"/>
-            <class name="com.salesforce.dev.accounts.CreateAccountViewFiltersFieldsAdded"/>
-            <class name="com.salesforce.dev.oportunity.CreateOpportunityViewBasic"/>
-            <class name="com.salesforce.dev.oportunity.CreateOpportunityViewFiltersFieldsAdded"/>
-            <class name="com.salesforce.dev.campaign.EditCampaignViewBasic"/>
-            <class name="com.salesforce.dev.contact.EditContactView"/>
-            <class name="com.salesforce.dev.campaign.EditCampaign"/>
-            <class name="com.salesforce.dev.accounts.EditAccount"/>
-            <class name="com.salesforce.dev.accounts.CreateAccount"/>
-            <class name="com.salesforce.dev.accounts.CreateAccountDD"/>
-            <class name="com.salesforce.dev.contact.CreateContact"/>
-            <class name="com.salesforce.dev.contact.CreateContactView"/>
-            <class name="com.salesforce.dev.lead.CreateLead"/>
-            <class name="com.salesforce.dev.lead.CreateLeadsViewBasic"/>
-            <class name="com.salesforce.dev.lead.EditLeadsViewBasic"/>
-            <class name="com.salesforce.dev.oportunity.CreateOpportunity"/>
-            <class name="com.salesforce.dev.chatter.CreatePost"/>
-            <class name="com.salesforce.dev.product.CreateProduct"/>
-            <class name="com.salesforce.dev.accounts.EditAccount"/>
-            <class name="com.salesforce.dev.contact.EditContact"/>
-            <class name="com.salesforce.dev.lead.EditLead"/>
-            <class name="com.salesforce.dev.oportunity.EditOpportunity"/>
-            <class name="com.salesforce.dev.product.EditProduct"/>
-            <class name="com.salesforce.dev.login.LoginTest"/>
-            <class name="com.salesforce.dev.TestCookies"/>
-            <class name="com.salesforce.dev.VerifyAllHomeTabs"/>
-            <class name="com.salesforce.dev.login.LogoutTest"/>
+            <class name="org.fundacionjala.sfdc.campaign.CreateCampaign"/>
+            <class name="org.fundacionjala.sfdc.campaign.CreateCampaignViewBasic"/>
+            <class name="org.fundacionjala.sfdc.campaign.CreateCampaignViewFiltersFieldsAdded"/>
+            <class name="org.fundacionjala.sfdc.accounts.CreateAccountViewBasic"/>
+            <class name="org.fundacionjala.sfdc.accounts.CreateAccountViewFiltersFieldsAdded"/>
+            <class name="org.fundacionjala.sfdc.oportunity.CreateOpportunityViewBasic"/>
+            <class name="org.fundacionjala.sfdc.oportunity.CreateOpportunityViewFiltersFieldsAdded"/>
+            <class name="org.fundacionjala.sfdc.campaign.EditCampaignViewBasic"/>
+            <class name="org.fundacionjala.sfdc.contact.EditContactView"/>
+            <class name="org.fundacionjala.sfdc.campaign.EditCampaign"/>
+            <class name="org.fundacionjala.sfdc.accounts.EditAccount"/>
+            <class name="org.fundacionjala.sfdc.accounts.CreateAccount"/>
+            <class name="org.fundacionjala.sfdc.accounts.CreateAccountDD"/>
+            <class name="org.fundacionjala.sfdc.contact.CreateContact"/>
+            <class name="org.fundacionjala.sfdc.contact.CreateContactView"/>
+            <class name="org.fundacionjala.sfdc.lead.CreateLead"/>
+            <class name="org.fundacionjala.sfdc.lead.CreateLeadsViewBasic"/>
+            <class name="org.fundacionjala.sfdc.lead.EditLeadsViewBasic"/>
+            <class name="org.fundacionjala.sfdc.oportunity.CreateOpportunity"/>
+            <class name="org.fundacionjala.sfdc.chatter.CreatePost"/>
+            <class name="org.fundacionjala.sfdc.product.CreateProduct"/>
+            <class name="org.fundacionjala.sfdc.accounts.EditAccount"/>
+            <class name="org.fundacionjala.sfdc.contact.EditContact"/>
+            <class name="org.fundacionjala.sfdc.lead.EditLead"/>
+            <class name="org.fundacionjala.sfdc.oportunity.EditOpportunity"/>
+            <class name="org.fundacionjala.sfdc.product.EditProduct"/>
+            <class name="org.fundacionjala.sfdc.login.LoginTest"/>
+            <class name="org.fundacionjala.sfdc.TestCookies"/>
+            <class name="org.fundacionjala.sfdc.VerifyAllHomeTabs"/>
+            <class name="org.fundacionjala.sfdc.login.LogoutTest"/>
         </classes>
     </test>
 </suite>
